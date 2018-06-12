@@ -23,9 +23,9 @@ function viewCart(){
       if (i+1 === cart.length){
         fullCart.push(` and ${cart[i].itemName} at $${cart[i].itemPrice}.`)
         } else {
-      fullCart.push(`${cart[i].itemName} at $${cart[i].itemPrice}`)
+      fullCart.push(` ${cart[i].itemName} at $${cart[i].itemPrice}`)
       }}
-    return 'In your cart, you have ' + fullCart
+    return 'In your cart, you have' + fullCart
   }
 }
 
