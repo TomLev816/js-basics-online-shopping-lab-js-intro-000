@@ -15,25 +15,40 @@ function addToCart(item) {
 }
 
 function viewCart(){
+  let fullCart = []
   if (cart.length === 0){
     return 'Your shopping cart is empty.'
   } else {
-    let theCart = []
-    for (let i = 0; i < cart.length; i++){
-      theCart.push(`${cart[i].itemName} at ${cart[i].itemPrice}`)
-    }
-return 'The line is currently:' + theCart
+    for(let i =0; i < cart.length; i++){
+      if (i+1 === cart.length){
+        fullCart.push(` and ${cart[i].itemName} at $${cart[i].itemPrice}.`)
+        } else {
+      fullCart.push(`${cart[i].itemName} at $${cart[i].itemPrice}`)
+      }}
+    return 'In your cart, you have ' + fullCart
   }
 }
 
 
 function total() {
-  // write your code here
+  let total = 0
+  for (let i = 0; i < cart.length; i++){
+    total += cart[i].itemPrice
+  }
+  return total
 }
 
 function removeFromCart(item) {
-  // write your code here
+  let i = -1
+  while (i < cart.length -1){
+    i++
+    if (item === cart[i].itemName){
+      return delete cart[i].itemName, delete cart[i].itemPrice
+    }
+  }
+  return 'That item is not in your cart.'
 }
+
 
 function placeOrder(cardNumber) {
   // write your code here
