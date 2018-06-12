@@ -18,15 +18,18 @@ function viewCart(){
   let fullCart = []
   if (cart.length === 0){
     return 'Your shopping cart is empty.'
-  } else {
+  } else if (cart.length === 1){
+    fullCart.push(` ${cart[0].itemName} at $${cart[0].itemPrice}`)
+    }else {
     for(let i =0; i < cart.length; i++){
       if (i+1 === cart.length){
         fullCart.push(` and ${cart[i].itemName} at $${cart[i].itemPrice}.`)
         } else {
       fullCart.push(` ${cart[i].itemName} at $${cart[i].itemPrice}`)
       }}
-    return 'In your cart, you have' + fullCart
+    
   }
+  return 'In your cart, you have' + fullCart
 }
 
 
